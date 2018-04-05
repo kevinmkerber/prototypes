@@ -1,0 +1,129 @@
+ <DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    
+    <title>Prototypes</title>>
+
+<style>
+
+</style>
+
+</head>
+
+
+<script>
+
+function Dog (name, breed, weight) {
+  this.name = name;
+  this.breed = breed;
+  this.weight = weight;
+}
+
+Dog.prototype.species = "Canine";
+Dog.prototype.bark = function() {
+  if(this.weight > 25) {
+    console.log(this.name + " " + "says WOOF!");
+  } else {
+    console.log(this.name + " " + "says yip!");
+  }
+};
+
+Dog.prototype.run = function() {
+  console.log("Run!");
+};
+
+Dog.prototype.wag = function() {
+  console.log("Wag!");
+};
+
+var fido = new Dog("Fido", "Mixed", 38);
+var fluffy = new Dog("Fluffy", "Poodle", 30);
+var spot = new Dog("Spot", "Chihuahua", 10);
+spot.bark = function() {
+  console.log(this.name + " " + "says Woof!");
+};
+
+fido.bark();
+fido.run();
+fido.wag();
+
+fluffy.bark();
+fluffy.run();
+fluffy.wag();
+
+spot.bark();
+spot.run();
+spot.wag();
+
+
+//this is a robot constructor with object inheritence
+
+function Robot(name, year, owner, killHumans) {
+  this.name = name;
+  this.year = year;
+  this.owner = owner;
+  this.killHumans = killHumans;
+}
+
+Robot.prototype.maker = "Objects-R-Us"; 
+
+Robot.prototype.speak = function() {
+  console.log("Hello I will do my task");
+};  
+
+Robot.prototype.makeCoffee = function() {
+  console.log("I'll make the coffee now");
+}; 
+
+Robot.prototype.blinkLights = function() {
+  console.log("Blink Blink");
+}; 
+
+Robot.prototype.killHumans = function() {
+  if (this.killHumans === false) {
+    console.log("My programming does not allow me to do that");
+  } else {
+    console.log("KILL ALL HUMANS");
+  }
+};
+
+var robby = new Robot("Robby", 1956, "Dr. Morbius", false);
+
+var rosie = new Robot("Rosie", 1962, "George Jetson", false);
+
+robby.onOffSwitch = true; 
+
+robby.makeCoffee = function() {
+  console.log("I'm running to starbucks for the coffee now");
+}; 
+
+rosie.cleanHouse = function () {
+  console.log("I'll have this house clean in a jiff");
+};
+
+console.log(robby.name + " was made by " + robby.maker + " in " + robby.year + " and is owned by " + robby.owner);
+robby.makeCoffee();
+robby.blinkLights();
+
+console.log(rosie.name + " was made by " + rosie.maker + " in " + rosie.year + " and is owned by " + rosie.owner);
+
+rosie.cleanHouse();
+
+rosie.killHumans();
+robby.killHumans();
+
+
+
+
+</script>
+
+
+<body>
+
+</body>
+
+</html>
